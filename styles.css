@@ -32,9 +32,20 @@ body {
 .sidebar ul li {
   cursor: pointer;
 }
-.sidebar ul li:is(:hover, .selected) :where(.icon, .text){
+/* set text color of categories while being hovered and selected */
+.sidebar ul li:is(:hover, .selected) .text{
   color: var(--bg);
 }
+
+/* set color of icons */
+.sidebar ul li:hover .icon{
+  color: var(--bg);
+}
+/* change icons' color to white during being selected */
+.sidebar ul li:is(.selected) .icon{
+  color: white;
+}
+
 .sidebar ul li .icon {
   font-size: 2rem ;
 }
@@ -69,6 +80,13 @@ body {
   position: relative;
   flex-shrink: 0;
 }
+/* change background color while being selected */
+.sidebar .menu-list .selected .icon {
+  background: var(--bg);
+}
+
+
+
 /* adjust icons' position */
 .sidebar .menu-list .icon ion-icon {
   position: absolute;
