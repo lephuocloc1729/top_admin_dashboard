@@ -57,7 +57,7 @@ body {
 
 .sidebar div li:hover {
   background: var(--clr);
-  color: white;
+  color: aqua;
 }
 
 /* build curve */
@@ -86,5 +86,18 @@ body {
 .sidebar .bottom li {
   border-radius: 30px;
   width: 95%;
-  
+}
+
+
+/* deal with top (menu and logo) */
+.sidebar .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2rem;
+}
+.sidebar .top .logo {
+  background-color: white;
+  color: black;
+  width: 50px;
 }
