@@ -219,4 +219,74 @@ body {
   font-size: 2.25rem;
 }
 
+/* MAIN */
+.main .information {
+  display: flex;
+  gap: 30px;
+}
+/* edit ORDERS part */
+.main .information .orders {
+  flex: 2;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 20px;
+}
+.main .information .orders .head {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* create gap between line */
+.main .information .body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+/* style content of orders */
+.main .information .orders .order {
+  display: grid;
+  grid-template-columns: 3fr 80px 80px 2fr;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* style status in orders table */
+.main .information .orders .status-box {
+  display: flex;
+  justify-content: end;
+}
+.main .information .orders .status{
+  align-self: flex-end;
+  text-align: end;
+  padding: 3px 5px;
+  border-radius: 10px;
+  background-color: var(--bg);
+  /* color: var(--clr); */
+  font-size: 0.8rem;
+}
+
+
+/* style button */ 
+.main .information .orders .head button {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+/* make the "customer" and "orders" words bold */
+.main .information .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* edit CUSTOMERS part */
+.main .information .customers {
+  flex: 1;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+
 

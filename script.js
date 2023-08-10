@@ -70,8 +70,34 @@ orderList.push(new orders('Ipad Air', '$800', 'Due', 'In progress'))
 // render these orders' information onto the page
 let htmlForOrder = ''
 orderList.forEach(order => {
-
+  let bg;
+  if (order.status === 'In progress'){
+    bg = '#04D9FF';
+  } else if (order.status === 'Return'){
+    bg = '#FF1818';
+  } else if (order.status === 'Delivered'){
+    bg = '#39FF14';
+  }
+  htmlForOrder += `
+  <div class='order'>
+    <div class='name'>
+      ${order.name}
+    </div>
+    <div class='price'>
+      ${order.price}
+    </div>
+    <div class='payment'>
+      ${order.payment}
+    </div>
+    <div class='status-box'>
+      <div class='status' style='--bg:${bg}'>
+      ${order.status}
+      </div>
+    </div>
+  </div>
+  `
 })
+document.querySelector('.orders .body').innerHTML = htmlForOrder;
 
 // create customer's objects 
 let customerList = [];
