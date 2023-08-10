@@ -68,7 +68,16 @@ orderList.push(new orders('Macbook Air M1', '$1000', 'Paid', 'In progress'))
 orderList.push(new orders('Ipad Air', '$800', 'Due', 'In progress'))
 
 // render these orders' information onto the page
-let htmlForOrder = ''
+let htmlForOrder = `
+  <div class='thead order'>
+    <div>Name</div>
+    <div>Price</div>
+    <div>Payment</div>
+    <div class='status-box'>
+      <div>Status</div>
+    </div>
+  </div>
+`;
 orderList.forEach(order => {
   let bg;
   if (order.status === 'In progress'){
@@ -110,4 +119,20 @@ customerList.push(new customers('Alvarez', 'Argentina'))
 customerList.push(new customers('Luke', 'Australia'))
 customerList.push(new customers('Ben', 'Mexico'))
 customerList.push(new customers('Alexandro', 'Italy'))
+
+//render customers' information 
+let htmlForCustomers = '';
+customerList.forEach(customer => {
+  htmlForCustomers += `
+  <div class='customer'>
+    <div class='name'>
+      ${customer.name}
+    </div>
+    <div class='nationality'>
+      ${customer.nationality}
+    </div>
+  </div>
+  `
+})
+document.querySelector('.customers .body').innerHTML = htmlForCustomers;
 

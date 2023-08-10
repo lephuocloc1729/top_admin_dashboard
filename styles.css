@@ -16,11 +16,12 @@ body {
   grid-template-areas: 
   "sidebar header"
   "sidebar main";
+  padding-right: 50px;
 }
 
 .sidebar {
   grid-area: sidebar;
-  position: absolute;
+  position: fixed;
   /* width: 100% ; */
   min-height: 100vh;
   background-color: white;
@@ -234,6 +235,7 @@ body {
 .main .information .orders .head {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 
@@ -265,6 +267,12 @@ body {
   font-size: 0.8rem;
 }
 
+/* make header in orders table bold */
+.main .information .orders .thead {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
 
 /* style button */ 
 .main .information .orders .head button {
@@ -286,7 +294,26 @@ body {
   border: 1px solid white;
   border-radius: 20px;
   padding: 20px;
+  /* create gap */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
+ /* bold customers' name*/ 
+ .main .information .customers .name {
+  font-size: 1.3rem;
+  font-weight: 700;
+ }
 
+ /* light customers' nationality */
+ .main .information .customers .nationality {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+ }
 
+ /* create gap between each customer */
+ .main .information .customers .body {
+  display: flex;
+  gap: 13px;
+ }
