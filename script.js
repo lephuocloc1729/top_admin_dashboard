@@ -38,3 +38,50 @@ categories.forEach(category => {
     }
   })
 });
+
+// create object generator for customers and orders
+function customers(name, nationality) {
+  this.name = name
+  this.nationality = nationality
+}
+
+function orders(name, price, payment,status) {
+  this.name = name
+  this.price = price
+  this.payment = payment
+  this.status = status
+}
+
+// create objects for orders and customers
+let orderList = [];
+orderList.push(new orders('Refridgerator', '$1200', 'Paid', 'Delivered'))
+orderList.push(new orders('Macbook Air M1', '$1000', 'Paid', 'In progress'))
+orderList.push(new orders('Macbook Pro M1', '$2000', 'Due', 'In progress'))
+orderList.push(new orders('Macbook Air M2', '$1500', 'Due', 'Return'))
+orderList.push(new orders('Ipad Air', '$800', 'Paid', 'Return'))
+orderList.push(new orders('Ipad Air', '$800', 'Paid', 'Return'))
+orderList.push(new orders('Macbook Air M1', '$1000', 'Paid', 'In progress'))
+orderList.push(new orders('Ipad Air', '$800', 'Due', 'In progress'))
+orderList.push(new orders('Macbook Air M1', '$1000', 'Paid', 'In progress'))
+orderList.push(new orders('Macbook Pro M2', '$3000', 'Paid', 'Delivered'))
+orderList.push(new orders('Macbook Air M1', '$1000', 'Paid', 'In progress'))
+orderList.push(new orders('Ipad Air', '$800', 'Due', 'In progress'))
+
+// render these orders' information onto the page
+let htmlForOrder = ''
+orderList.forEach(order => {
+
+})
+
+// create customer's objects 
+let customerList = [];
+customerList.push(new customers('Hai Bang', 'Vietnam'))
+customerList.push(new customers('Phuoc Loc', 'Vietnam'))
+customerList.push(new customers('David', 'America'))
+customerList.push(new customers('Roberto', 'Brazil'))
+customerList.push(new customers('Ronaldo', 'Portugal'))
+customerList.push(new customers('Alvarez', 'Argentina'))
+customerList.push(new customers('Luke', 'Australia'))
+customerList.push(new customers('Ben', 'Mexico'))
+customerList.push(new customers('Alexandro', 'Italy'))
+
