@@ -10,11 +10,18 @@
 body {
   background: var(--clr);
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 10vh 1fr;
+  grid-template-areas: 
+  "sidebar header"
+  "sidebar main";
 }
 
 .sidebar {
+  grid-area: sidebar;
   position: absolute;
-  width: 220px;
+  /* width: 100% ; */
   min-height: 100vh;
   background-color: white;
   padding: 20px;
@@ -79,13 +86,12 @@ body {
   border-radius: 50px;
   position: relative;
   flex-shrink: 0;
+  transition: background 1.5s, color 0.5s;
 }
 /* change background color while being selected */
 .sidebar .menu-list .selected .icon {
   background: var(--bg);
 }
-
-
 
 /* adjust icons' position */
 .sidebar .menu-list .icon ion-icon {
@@ -114,6 +120,11 @@ body {
   border-top-right-radius: 20px;
   box-shadow: 5px -5px 0 5px var(--clr);
 }
+/* add hover to icons */
+.sidebar .menu-list .selected .icon:hover {
+  background: white;
+  color: var(--bg);
+}
 
 /* adjust log out button */
 .sidebar .bottom li {
@@ -133,4 +144,46 @@ body {
 
 .sidebar .top .menu {
   cursor: pointer;
+}
+
+
+/* layout content */
+
+/* Header */
+.header {
+  grid-area: header;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+    /*Search*/
+.header .search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.header #search {
+  padding: 10px 35px;
+  font-size: 1rem;
+  border: 1px solid var(--clr);
+  border-radius: 30px;
+  outline: none;
+  width: 100%;
+}
+/* add search icon */
+.header .search .search-box {
+  width: clamp(250px, 50%, 500px);
+  position: relative;
+}
+.header .search-icon {
+  position: absolute;
+  left: 10px;
+  color: rgb(100, 100, 100);
+  top: 10px;
+  font-size: 1.2rem;
+}
+
+/* Main */
+.main {
+  grid-area: main;
 }
