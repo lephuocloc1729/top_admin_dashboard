@@ -10,14 +10,6 @@
 body {
   background: var(--clr);
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 15fr;
-  grid-template-rows: 10vh 1fr;
-  column-gap: 50px;
-  grid-template-areas: 
-  "sidebar header"
-  "sidebar main";
-  padding-right: 50px;
 }
 
 .sidebar {
