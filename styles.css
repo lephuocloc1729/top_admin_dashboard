@@ -186,4 +186,37 @@ body {
 /* Main */
 .main {
   grid-area: main;
+  color: white;
 }
+
+    /*Report */
+
+/* report grid */
+.main .report ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 30px auto;
+}
+
+/* create flex for each element */
+.main .report ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+/* make icons bigger and change color*/
+.main .report .icon {
+  font-size: 2.5rem;
+}
+
+/* make number in each element bigger */
+.main .report .amount {
+  font-size: 2.25rem;
+}
+
+
