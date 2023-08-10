@@ -9,11 +9,11 @@ menu.addEventListener('click', () => closeSideBar());
 
 function closeSideBar() {
   if (!isSideBarClosed){
-    document.querySelector('.sidebar').style.width = '90px';
+    document.querySelector('.sidebar').classList.add('closed');
     isSideBarClosed = true;
   }
   else if (isSideBarClosed) {
-    document.querySelector('.sidebar').style.width = '220px';
+    document.querySelector('.sidebar').classList.remove('closed');
     isSideBarClosed = false;
   }
 }
