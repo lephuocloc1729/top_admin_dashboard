@@ -5,11 +5,23 @@
   font-family: 'Roboto', sans-serif;
 }
 :root {
-  --clr: rgb(15, 20, 27);
+  --clr: #daf9ff;
+  --bg-lighter: white;
+  --text-clr: rgb(80,80,80);
+  --btn-clr: #8aecff;
+  --gray: rgb(150, 150, 150);
 }
 body {
   background: var(--clr);
   min-height: 100vh;
+  transition: all 0.25s ease;
+}
+body.dark {
+  --clr: rgb(15, 20, 27);
+  --bg-lighter: rgb(24, 38, 53);
+  --text-clr: white;
+  --btn-clr: white;
+  --text-clr-lighter: rgba(255, 255, 255, 0.7)
 }
 
 .sidebar {
@@ -17,11 +29,12 @@ body {
   position: fixed;
   width: 220px;
   min-height: 100vh;
-  background-color: white;
+  background-color: var(--bg-lighter);
   padding: 20px;
   padding-right: 0;
   overflow: hidden;
   transition: all 0.3s;
+  z-index: 100;
 }
 .sidebar.closed {
   width: 90px;
@@ -59,6 +72,7 @@ body {
   gap: 30px;
   flex: 1;
   justify-content: center;
+  color: var(--gray);
 }
 .sidebar li {
   display: flex;
@@ -79,11 +93,12 @@ body {
 .sidebar .menu-list .icon {
   width: 50px;
   height: 50px;
-  background-color: white;
+  background-color: var(--bg-lighter);
   border-radius: 50px;
   position: relative;
   flex-shrink: 0;
-  transition: background 1.5s, color 0.5s;
+  transition: background 0.5s, color 0.5s;
+  color: var(--gray);
 }
 /* change background color while being selected */
 .sidebar .menu-list .selected .icon {
@@ -126,10 +141,14 @@ body {
 /* adjust log out button */
 .sidebar .bottom li {
   border-radius: 30px;
+  color: var(--gray);
+}
+.sidebar .bottom li ion-icon{
+  rotate: 180deg;
 }
 .sidebar .bottom li:hover {
   color: rgb(232, 53, 53);
-  background-color: white;
+  background-color: var(--bg-lighter);
 }
 
 /* deal with menu */
@@ -144,6 +163,7 @@ body {
   position: absolute;
   left: 35px;
   top: 10px;
+  color: var(--gray);
 }
 
 
@@ -152,7 +172,7 @@ body {
 /* Header */
 .header {
   grid-area: header;
-  color: white;
+  color: var(--text-clr);
   display: flex;
   align-items: center;
 }
@@ -169,6 +189,8 @@ body {
   border-radius: 30px;
   outline: none;
   width: 100%;
+  background-color: var(--bg-lighter);
+  color: var(--gray);
 }
 /* add search icon */
 .header .search .search-box {
@@ -178,7 +200,7 @@ body {
 .header .search-icon {
   position: absolute;
   left: 10px;
-  color: rgb(100, 100, 100);
+  color: var(--gray);
   top: 10px;
   font-size: 1.2rem;
 }
@@ -186,7 +208,7 @@ body {
 /* Main */
 .main {
   grid-area: main;
-  color: white;
+  color: var(--text-clr);
 }
 
     /*Report */
@@ -205,8 +227,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
-  border: 1px solid white;
+  /* border: 1px solid var(--gray); */
+  background: var(--bg-lighter);
   border-radius: 20px;
+  transition: all 0.3s;
 }
 
 /* make icons bigger and change color*/
@@ -218,6 +242,11 @@ body {
 .main .report .amount {
   font-size: 2.25rem;
 }
+/* make information of reports not able to shrink */
+.main .report .info {
+  flex-shrink: 0;
+  margin-right: 10px;
+}
 
 /* MAIN */
 .main .information {
@@ -227,9 +256,11 @@ body {
 /* edit ORDERS part */
 .main .information .orders {
   flex: 2;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   border-radius: 20px;
   padding: 20px;
+  background: var(--bg-lighter);
+  transition: all 0.5s ease;
 }
 .main .information .orders .head {
   display: flex;
@@ -275,8 +306,8 @@ body {
 
 /* style button */ 
 .main .information .orders .head button {
-  background-color: white;
-  border: 1px solid white;
+  background-color: var(--btn-clr);
+  border: none;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 1rem;
@@ -290,13 +321,15 @@ body {
 /* edit CUSTOMERS part */
 .main .information .customers {
   flex: 1;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   border-radius: 20px;
   padding: 20px;
   /* create gap */
   display: flex;
   flex-direction: column;
   gap: 30px;
+  background: var(--bg-lighter);
+  transition: all 0.5s ease;
 }
 
  /* bold customers' name*/ 
@@ -308,7 +341,7 @@ body {
  /* light customers' nationality */
  .main .information .customers .nationality {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: --text-clr-lighter;
  }
 
  /* create gap between each customer */
@@ -316,3 +349,31 @@ body {
   display: flex;
   gap: 13px;
  }
+
+ .main {
+  position: relative;
+  left: 220px;
+  width: calc(100% - 220px);
+  transition: all 0.3s ease;
+  padding: 0 50px;
+ }
+ .sidebar.closed ~ .main{
+  left: 90px;
+  width: calc((100% - 90px));
+
+ }
+
+ /* account avatar */
+ img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 40px;
+  margin: 10px;
+ }
+ /* color mode icon */
+.color-mode {
+  font-size: 1.5rem;
+  margin-right: 20px;
+  cursor: pointer;
+}

@@ -136,3 +136,13 @@ customerList.forEach(customer => {
 })
 document.querySelector('.customers .body').innerHTML = htmlForCustomers;
 
+// add color mode 
+const colorMode = document.getElementById('color-mode');
+colorMode.addEventListener('click', () => {
+  document.querySelector('body').classList.toggle('dark');
+  if (document.querySelector('.dark')){
+    document.getElementById('color-mode').innerHTML=`<ion-icon name="sunny"></ion-icon>` 
+  } else {
+    document.getElementById('color-mode').innerHTML=`<ion-icon name="moon-outline"></ion-icon>` 
+  }
+})
