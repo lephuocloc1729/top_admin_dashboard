@@ -5,7 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 :root {
-  --clr: #daf9ff;
+  --clr: rgb(218, 249, 255);
+  --clr-blur: rgba(218, 249, 255, 0.3);
   --bg-lighter: white;
   --text-clr: rgb(80,80,80);
   --btn-clr: #8aecff;
@@ -18,6 +19,7 @@ body {
 }
 body.dark {
   --clr: rgb(15, 20, 27);
+  --clr-blur: rgba(15, 20, 27, 0.3);
   --bg-lighter: rgb(24, 38, 53);
   --text-clr: white;
   --btn-clr: white;
@@ -159,7 +161,7 @@ body.dark {
 
 #menu {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   left: 35px;
   top: 10px;
   color: var(--gray);
@@ -177,6 +179,12 @@ body.dark {
   color: var(--text-clr);
   display: flex;
   align-items: center;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  background: var(--clr-blur);
+  backdrop-filter: blur(5px);
+  width: inherit;
 }
     /*Search*/
 .header .search {
@@ -220,7 +228,7 @@ body.dark {
   left: 220px;
   width: calc(100% - 220px);
   transition: all 0.3s ease;
-  padding: 0 50px;
+  top: 70px;
  }
  .sidebar.closed ~ .main{
   left: 90px;
@@ -233,12 +241,17 @@ body.dark {
 
     /*Report */
 
+.main .report, 
+.main .information{
+  padding: 0 50px;
+}
 /* report grid */
 .main .report ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  margin: 30px auto;
+  margin-bottom: 30px;
+  /* margin: 30px auto; */
 }
 
 /* create flex for each element */
@@ -281,7 +294,8 @@ body.dark {
   padding: 20px;
   background: var(--bg-lighter);
   transition: all 0.3s ease;
-  min-width: 430px;
+  /* min-width: 430px; */
+  overflow-x: auto;
 }
 .main .information .orders .head {
   display: flex;
@@ -302,6 +316,7 @@ body.dark {
   grid-template-columns: 3fr 80px 80px 2fr;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  min-width: 400px
 }
 /* style status in orders table */
 .main .information .orders .status-box {
