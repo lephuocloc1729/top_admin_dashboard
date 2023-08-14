@@ -183,7 +183,7 @@ body.dark {
   z-index: 200;
   top: 0;
   background: var(--clr-blur);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   width: inherit;
 }
     /*Search*/
