@@ -36,6 +36,9 @@ categories.forEach(category => {
       category.classList.add('selected');
       isSelected = true;
     }
+    if (!isSideBarClosed){
+      closeSideBar();
+    }
   })
 });
 
@@ -144,5 +147,14 @@ colorMode.addEventListener('click', () => {
     document.getElementById('color-mode').innerHTML=`<ion-icon name="sunny"></ion-icon>` 
   } else {
     document.getElementById('color-mode').innerHTML=`<ion-icon name="moon-outline"></ion-icon>` 
+  }
+})
+
+// close sidebar when clicking outside
+document.querySelector('body').addEventListener('click', (e) => {
+  if ((e.target.id !== 'sidebar') && (e.target.id !== 'menu-icon')){
+    if(!isSideBarClosed){
+      closeSideBar();
+    }
   }
 })

@@ -14,7 +14,7 @@
 body {
   background: var(--clr);
   min-height: 100vh;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
 }
 body.dark {
   --clr: rgb(15, 20, 27);
@@ -34,7 +34,6 @@ body.dark {
   padding-right: 0;
   overflow: hidden;
   transition: all 0.3s;
-  z-index: 100;
 }
 .sidebar.closed {
   width: 90px;
@@ -97,7 +96,7 @@ body.dark {
   border-radius: 50px;
   position: relative;
   flex-shrink: 0;
-  transition: background 0.5s, color 0.5s;
+  transition: background 0.3s, color 0.3s;
   color: var(--gray);
 }
 /* change background color while being selected */
@@ -158,12 +157,15 @@ body.dark {
   font-size: 2rem;
 }
 
-.sidebar .top .menu {
+#menu {
   cursor: pointer;
   position: absolute;
   left: 35px;
   top: 10px;
   color: var(--gray);
+  background: transparent;
+  z-index: 100;
+  font-size: 2rem;
 }
 
 
@@ -181,6 +183,8 @@ body.dark {
   flex: 1;
   display: flex;
   justify-content: center;
+  padding-left: 40px;
+  margin-right: 20px;
 }
 .header #search {
   padding: 10px 35px;
@@ -191,6 +195,8 @@ body.dark {
   width: 100%;
   background-color: var(--bg-lighter);
   color: var(--gray);
+  transition: all 0.3s ease;
+  /* margin-left: 100px; */
 }
 /* add search icon */
 .header .search .search-box {
@@ -209,7 +215,21 @@ body.dark {
 .main {
   grid-area: main;
   color: var(--text-clr);
-}
+  /* make main interact with sidebar */
+  position: relative;
+  left: 220px;
+  width: calc(100% - 220px);
+  transition: all 0.3s ease;
+  padding: 0 50px;
+ }
+ .sidebar.closed ~ .main{
+  left: 90px;
+  width: calc((100% - 90px));
+ }
+/* make navbar fixed */
+/* .main .header {
+  position: fixed;
+} */
 
     /*Report */
 
@@ -255,12 +275,13 @@ body.dark {
 }
 /* edit ORDERS part */
 .main .information .orders {
-  flex: 2;
+  flex: 4;
   /* border: 1px solid white; */
   border-radius: 20px;
   padding: 20px;
   background: var(--bg-lighter);
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
+  min-width: 430px;
 }
 .main .information .orders .head {
   display: flex;
@@ -329,7 +350,7 @@ body.dark {
   flex-direction: column;
   gap: 30px;
   background: var(--bg-lighter);
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
  /* bold customers' name*/ 
@@ -350,18 +371,7 @@ body.dark {
   gap: 13px;
  }
 
- .main {
-  position: relative;
-  left: 220px;
-  width: calc(100% - 220px);
-  transition: all 0.3s ease;
-  padding: 0 50px;
- }
- .sidebar.closed ~ .main{
-  left: 90px;
-  width: calc((100% - 90px));
 
- }
 
  /* account avatar */
  img {
@@ -376,4 +386,36 @@ body.dark {
   font-size: 1.5rem;
   margin-right: 20px;
   cursor: pointer;
+}
+
+
+/* MEDIA QUERY */
+/* report change to 2 columns */
+@media screen and (max-width: 70rem) {
+  .sidebar{
+    width: 90px;
+  }
+  /* .sidebar.closed {
+    left: -100px;
+  } */
+  .main{
+    width: calc(100% - 90px) ;
+    left: 90px;
+  }
+  .main .report ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+/* orders and customers in 1 columns */
+@media screen and (max-width: 850px){
+  .main .information{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .main .report ul {
+    grid-template-columns: 1fr;
+  }
 }
